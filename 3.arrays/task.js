@@ -1,24 +1,11 @@
 function compareArrays(arr1, arr2) {
-  if (
-    arr1.length === arr2.length &&
-    arr1.every(
-      (element, index) => arr1.index === arr2.index && element === arr2[index]
-    )
-  ) {
-    return "true";
-  } else if (
-    arr1.length === arr2.length &&
-    arr1.every(
-      (element, index) => arr1.index === arr2.index || element === arr2[index]
-    )
-  ) {
-    return "false, разные индексы, хотя и одинаковые значения";
-  } else {
-    return "false, разные значения";
+  if (arr1.length !== arr2.length) {
+    return false;
   }
+  return arr1.every((element, index) => element === arr2[index]);
 }
 
-//console.log(compareArrays([8, 1, 2, 5, 6], [8, 1, 2, 5, 6]));
+//console.log(compareArrays([1, 2, 3], [1, 2, 3]));
 
 const people = [
   { firstName: "Александр", secondName: "Карпов", age: 17, gender: "мужской" },
@@ -48,7 +35,6 @@ function getUsersNamesInAgeRange(users, gender) {
     );
 
   return result;
-
 }
 
 //console.log(getUsersNamesInAgeRange(people, "женский"));
